@@ -1,0 +1,22 @@
+<!-- after somebody registers, he/she will need to login back; this is where it is -->
+<!DOCTYPE html>
+{%extends 'basic_app/base.html'%}
+
+{%load staticfiles%}
+{%block body_block%}
+
+<div class="jumbotron">
+  <h1>Please Login</h1>
+  <form class="form-group" action="{%url 'basic_app:user_login'%}" method="post">
+    {%csrf_token%}
+    <!-- for matches id, name matches the query.get() method!! Usually, id has the same value as name does! -->
+    <label for="username">Username:</label>
+    <input id="username" class="form-control" type="text" name="username" placeholder="Enter username">
+
+    <label for="password">Password:</label>
+    <input id="username" class="form-control" type="password" name="password" placeholder="********">
+    <input class="btn btn-primary" type="submit" name="" value="Login">
+  </form>
+</div>
+
+{%endblock%}
